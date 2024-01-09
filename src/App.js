@@ -18,7 +18,7 @@ function App() {
         <Welcome />
         {/* <AllTheBooks /> */}
         <Row>
-          <Col xs={12} md={9}>
+          <Col xs={12} md={12}>
             <BookList books={fantasy} />
           </Col>
         </Row>

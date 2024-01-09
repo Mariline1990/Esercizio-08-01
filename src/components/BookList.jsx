@@ -13,7 +13,7 @@ class BookList extends Component {
     return (
       <>
         <Row className="justify-content-center mt-5">
-          <Col xs={12} md={4} className="text-center">
+          <Col className="text-center">
             <Form.Group>
               <Form.Control
                 type="search"
@@ -24,17 +24,20 @@ class BookList extends Component {
             </Form.Group>
           </Col>
         </Row>
-        <Row className=" mt-3" xs={1} md={2}>
-          <Col md={6}>
-            {this.props.books
-              .filter((b) => b.title.toLowerCase().includes(this.state.searchQuery))
-              .map((b) => (
-                <Col md={12} key={b.asin}>
-                  <SingleBook book={b} />
-                </Col>
-              ))}
+
+        <Row md={2}>
+          <Col>
+            <Row className=" mt-3">
+              {this.props.books
+                .filter((b) => b.title.toLowerCase().includes(this.state.searchQuery))
+                .map((b) => (
+                  <Col key={b.asin}>
+                    <SingleBook book={b} />
+                  </Col>
+                ))}
+            </Row>
           </Col>
-          <Col md={6}>
+          <Col>
             <CommentArea asin={this.state.currentAsin}></CommentArea>
           </Col>
         </Row>
